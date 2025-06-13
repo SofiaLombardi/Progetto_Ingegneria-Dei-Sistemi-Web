@@ -73,49 +73,20 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 
 ---
 
-## 5. 📁 Struttura del progetto
-
-
-bookclub-app/
-├── client/ # Frontend Vue.js
-│ ├── public/ # File statici (favicon, index.html, ecc.)
-│ └── src/
-│ ├── assets/ # Immagini, icone, file statici
-│ ├── components/ # Componenti riutilizzabili (BookCard.vue, BookForm.vue, Navbar.vue, ecc.)
-│ ├── views/ # Pagine principali (Dashboard.vue, Wishlist.vue, Stats.vue, Profile.vue, ecc.)
-│ ├── router/ # Configurazione Vue Router
-│ ├── App.vue # Componente root
-│ └── main.js # Entry point Vue
-│
-├── server/ # Backend Node.js/Express
-│ ├── controllers/ # Logica delle API
-│ ├── middleware/ # Middleware personalizzati
-│ ├── models/ # Modelli Mongoose
-│ ├── routes/ # Definizione API REST
-│ ├── .env # Variabili ambiente
-│ └── server.js # Entry point server
-│
-├── README.md # Documentazione
-├── package.json # Script e dipendenze root
-└── .gitignore # File ignorati da Git
-
-
-
----
-
-## 6. ▶️ Installazione e avvio
+## 5. ▶️ Installazione e avvio
 
 ### Backend (`server/`)
 ```bash
 cd server
 npm install
 npm start
-
+```
 ### Frontend (client/)
+```bash
 cd client
 npm install
 npm run dev
-
+```
 ## 7. Pacchetti installati
 Backend (server/)
 express
@@ -128,29 +99,32 @@ Frontend (client/)
 vue
 axios
 bootstrap
-8. API principali
-Autenticazione
+
+## 8. API principali
+### Autenticazione
 POST /api/auth/register – Registrazione utente
 POST /api/auth/login – Login utente
 GET /api/auth/me – Dati utente autenticato (protetta)
 PUT /api/auth/change-password – Cambio password (protetta)
-Libri
+### Libri
 GET /api/books – Elenco libri utente (protetta)
 POST /api/books – Aggiungi libro (protetta)
 PUT /api/books/:id – Modifica libro (protetta)
 DELETE /api/books/:id – Cancella libro (protetta)
-9. Statistiche e grafici
+
+## 9. Statistiche e grafici
 Nella sezione Statistiche (Stats.vue) trovi:
 
 Libri per categoria (grafico a torta)
 Libri da leggere per categoria (grafico a barre)
 Libri letti per categoria (grafico a barre)
 Totale libri, media voto, categoria più letta
-10. Link al repository
+
+## 10. Link al repository
 https://github.com/SofiaLombardi/Progetto_Ingegneria-Dei-Sistemi-Web.git
 
-11. Conclusioni
+## 11. Conclusioni
 BookClub App offre una soluzione moderna e sicura per la gestione della propria libreria personale, con un’interfaccia intuitiva e funzionalità avanzate di statistica e personalizzazione.
 
-12. Screenshot
+## 12. Screenshot
 (Inserisci qui screenshot delle principali schermate dell’app)
