@@ -88,37 +88,44 @@ npm install
 npm run dev
 ```
 ## 6. Pacchetti installati
-Backend (server/)
-express
-mongoose
-cors
-dotenv
-bcrypt
-jsonwebtoken
-Frontend (client/)
-vue
-axios
-bootstrap
+### Backend (server/)
+- express
+- mongoose
+- cors
+- dotenv
+- bcrypt
+- jsonwebtoken
+### Frontend (client/)
+- vue
+- axios
+- bootstrap
 
 ## 7. API principali
 ### Autenticazione
 POST /api/auth/register – Registrazione utente
+
 POST /api/auth/login – Login utente
+
 GET /api/auth/me – Dati utente autenticato (protetta)
+
 PUT /api/auth/change-password – Cambio password (protetta)
+
 ### Libri
 GET /api/books – Elenco libri utente (protetta)
+
 POST /api/books – Aggiungi libro (protetta)
+
 PUT /api/books/:id – Modifica libro (protetta)
+
 DELETE /api/books/:id – Cancella libro (protetta)
 
 ## 8. Statistiche e grafici
 Nella sezione Statistiche (Stats.vue) trovi:
 
-Libri per categoria (grafico a torta)
-Libri da leggere per categoria (grafico a barre)
-Libri letti per categoria (grafico a barre)
-Totale libri, media voto, categoria più letta
+  - Libri per categoria (grafico a torta)
+  - Libri da leggere per categoria (grafico a barre)
+  - Libri letti per categoria (grafico a barre)
+  - Totale libri, media voto, categoria più letta
 
 ## 9. Link al repository
 https://github.com/SofiaLombardi/Progetto_Ingegneria-Dei-Sistemi-Web.git
