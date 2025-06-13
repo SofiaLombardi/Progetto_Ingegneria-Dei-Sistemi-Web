@@ -87,7 +87,7 @@ cd client
 npm install
 npm run dev
 ```
-## 7. Pacchetti installati
+## 6. Pacchetti installati
 Backend (server/)
 express
 mongoose
@@ -100,7 +100,7 @@ vue
 axios
 bootstrap
 
-## 8. API principali
+## 7. API principali
 ### Autenticazione
 POST /api/auth/register – Registrazione utente
 POST /api/auth/login – Login utente
@@ -112,7 +112,7 @@ POST /api/books – Aggiungi libro (protetta)
 PUT /api/books/:id – Modifica libro (protetta)
 DELETE /api/books/:id – Cancella libro (protetta)
 
-## 9. Statistiche e grafici
+## 8. Statistiche e grafici
 Nella sezione Statistiche (Stats.vue) trovi:
 
 Libri per categoria (grafico a torta)
@@ -120,11 +120,11 @@ Libri da leggere per categoria (grafico a barre)
 Libri letti per categoria (grafico a barre)
 Totale libri, media voto, categoria più letta
 
-## 10. Link al repository
+## 9. Link al repository
 https://github.com/SofiaLombardi/Progetto_Ingegneria-Dei-Sistemi-Web.git
 
-## 11. Conclusioni
+## 10. Conclusioni
 BookClub App offre una soluzione moderna e sicura per la gestione della propria libreria personale, con un’interfaccia intuitiva e funzionalità avanzate di statistica e personalizzazione.
 
-## 12. Screenshot
+## 11. Screenshot
 (Inserisci qui screenshot delle principali schermate dell’app)
