@@ -1,11 +1,11 @@
-# 📚 BookClub Web App
+# BookClub Web App
 
 **Studente:** Sofia Lombardi  
 **Corso:** Ingegneria dei Sistemi Web – AA 2024/25
 
 ---
 
-## 1. 📘 Introduzione
+## 1. Introduzione
 
 ### Contesto  
 BookClub è un’applicazione web pensata per chi ama leggere e vuole gestire la propria libreria personale, annotare i libri letti, quelli da leggere, le recensioni e i voti, e tenere traccia delle proprie statistiche di lettura.
@@ -21,7 +21,7 @@ Offrire agli utenti un’interfaccia semplice e intuitiva per:
 
 ---
 
-## 2. 🖼️ Mock-up
+## 2.  Mock-up
 
 I mock-up delle principali pagine dell’applicazione sono stati realizzati con **Figma**.
 
@@ -37,7 +37,7 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 
 ---
 
-## 3. 🛠️ Tecnologie usate
+## 3.  Tecnologie usate
 
 ### Frontend
 - **Linguaggio:** JavaScript (ES6+)
@@ -59,7 +59,7 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 
 ---
 
-## 4. ✅ Requisiti base fondamentali
+## 4. Requisiti base fondamentali
 
 - Registrazione e login sicuri con validazione lato server e client  
 - CRUD completo sui libri (aggiunta, modifica, cancellazione, visualizzazione)  
@@ -73,7 +73,7 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 
 ---
 
-## 5. ▶️ Installazione e avvio
+## 5.  Installazione e avvio
 
 ### Backend (`server/`)
 ```bash
