@@ -23,7 +23,7 @@
           <router-link class="nav-link" to="/wishlist">Wishlist</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/list">List</router-link>
+          <router-link class="nav-link" to="/list">Liste</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/stats">Statistiche</router-link>

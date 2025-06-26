@@ -19,7 +19,7 @@
         </span>
       </p>
       <p class="card-text">
-        <small class="text-muted">Categoria: {{ book.category || 'Generale' }}</small>
+        <small class="text-muted">Genere: {{ book.category || 'Generale' }}</small>
       </p>
       <p class="card-text" v-if="lists && lists.length">
         <small class="text-muted">
