@@ -183,9 +183,7 @@ GitHub Repository:
 [https://github.com/SofiaLombardi/Progetto_Ingegneria-Dei-Sistemi-Web.git](https://github.com/SofiaLombardi/Progetto_Ingegneria-Dei-Sistemi-Web.git)
 
 ## 11. Conclusioni
-
 BookClub App offre una soluzione moderna e sicura per la gestione della propria libreria personale, con un’interfaccia intuitiva e funzionalità avanzate di statistica e personalizzazione.
 
 ## 12. Screenshot
-
 *(Inserire qui gli screenshot reali delle principali schermate dell’app funzionante, oppure i mock-up se il progetto non è completato.)*
