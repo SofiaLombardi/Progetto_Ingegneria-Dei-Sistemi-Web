@@ -66,7 +66,9 @@ export default {
         localStorage.setItem('username', res.data.user.username);
         this.showToast('Login effettuato con successo!');
         setTimeout(() => {
-          this.$router.push('/');
+          this.$router.push('/').then(() => {
+            window.location.reload();
+          });
         }, 800);
       } catch (err) {
         this.showToast(

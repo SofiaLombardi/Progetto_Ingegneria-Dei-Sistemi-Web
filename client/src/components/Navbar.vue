@@ -65,7 +65,6 @@ export default {
       localStorage.removeItem('token');
       localStorage.removeItem('username');
       this.$router.push('/login');
-      // Forza il refresh per aggiornare la navbar in modo reattivo
       window.location.reload();
     }
   }
