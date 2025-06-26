@@ -1,4 +1,4 @@
-# 📚 BookClub Web App
+# BookClub Web App
 
 **Studente:** Sofia Lombardi  
 **Corso:** Ingegneria dei Sistemi Web – AA 2024/25
@@ -74,7 +74,6 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 ---
 
 ## 5.  Struttura del progetto
-
 ```
 bookclub-app/
 ├── client/ # Frontend Vue.js
@@ -110,6 +109,7 @@ cd server
 npm install
 npm start
 ```
+```
 
 ### Frontend (`client/`)
 ```bash
@@ -119,8 +119,26 @@ npm run dev
 ```
 
 ---
+- express
+- mongoose
+- cors
+- dotenv
+- bcrypt
+- jsonwebtoken
+### Frontend (client/)
+- vue
+- axios
+- bootstrap
 
-## 7. Pacchetti installati
+## 7. API principali
+
+
+
+### Libri
+
+
+
+## 8. Statistiche e grafici
 
 **Backend (server/):**
 - express
