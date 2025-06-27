@@ -1,43 +1,53 @@
 <template>
-  <div class="container mt-5" style="max-width: 400px;">
-    <h2 class="mb-4 text-center">Login</h2>
-    <form @submit.prevent="login" autocomplete="on">
-      <label for="email" class="form-label">Email</label>
-      <input
-        id="email"
-        v-model="email"
-        type="email"
-        placeholder="Email"
-        class="form-control mb-2"
-        required
-        autocomplete="email"
-        aria-label="Email"
+  <div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <div class="w-100" style="max-width: 400px;">
+      <h2 class="mb-4 text-center">Login</h2>
+      <form @submit.prevent="login" autocomplete="on" class="d-flex flex-column align-items-center">
+        <label for="email" class="form-label w-100 text-center">Email</label>
+        <input
+          id="email"
+          v-model="email"
+          type="email"
+          :class="['form-control', 'mb-2', 'text-center', toast.type === 'danger' && toast.show ? 'is-invalid' : '']"
+          required
+          autocomplete="email"
+          aria-label="Email"
+        />
+
+        <label for="password" class="form-label w-100 text-center">Password</label>
+        <input
+          id="password"
+          v-model="password"
+          type="password"
+          placeholder="Password"
+          :class="['form-control', 'mb-3', 'text-center', toast.type === 'danger' && toast.show ? 'is-invalid' : '']"
+          required
+          autocomplete="current-password"
+          aria-label="Password"
+        />
+
+        <button class="btn btn-success w-100" :disabled="loading" aria-label="Accedi">
+          <span v-if="loading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+          {{ loading ? 'Accesso in corso...' : 'Accedi' }}
+        </button>
+      </form>
+
+      <div class="text-center mt-3">
+        <router-link to="/register">Non hai un account? Registrati</router-link>
+      </div>
+
+      <div v-if="toast.type === 'danger' && toast.show" class="invalid-feedback d-block text-center mb-2" aria-live="assertive">
+        {{ toast.message }}
+      </div>
+
+      <Toast
+        :show="toast.show"
+        :message="toast.message"
+        :type="toast.type"
+        @close="toast.show = false"
+        aria-live="polite"
       />
-
-      <label for="password" class="form-label">Password</label>
-      <input
-        id="password"
-        v-model="password"
-        type="password"
-        placeholder="Password"
-        class="form-control mb-3"
-        required
-        autocomplete="current-password"
-        aria-label="Password"
-      />
-
-      <button class="btn btn-success w-100" :disabled="loading" aria-label="Accedi">
-        <span v-if="loading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-        Accedi
-      </button>
-    </form>
-
-    <Toast
-      :show="toast.show"
-      :message="toast.message"
-      :type="toast.type"
-      @close="toast.show = false"
-    />
+    </div>
   </div>
 </template>
 
@@ -87,3 +97,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container {
+  min-height: 100vh;
+  padding: 1rem;
+}
+</style>

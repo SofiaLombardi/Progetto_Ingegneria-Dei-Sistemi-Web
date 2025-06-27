@@ -1,53 +1,55 @@
 <template>
-  <div class="container mt-4" style="max-width: 400px;">
-    <h2 class="mb-4 text-center">Profilo Utente</h2>
-    <ul class="list-group my-3">
-      <li class="list-group-item">
-        <strong>Nome utente:</strong> {{ username }}
-      </li>
-      <li class="list-group-item" v-if="createdAt">
-        <strong>Iscritta il:</strong> {{ formattedDate }}
-      </li>
-    </ul>
+  <div class="container min-vh-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="w-100" style="max-width: 400px;">
+      <h2 class="mb-4 text-center">Profilo Utente</h2>
+      <ul class="list-group my-3">
+        <li class="list-group-item text-center">
+          <strong>Nome utente:</strong> {{ username }}
+        </li>
+        <li class="list-group-item text-center" v-if="createdAt">
+          <strong>Iscritta il:</strong> {{ formattedDate }}
+        </li>
+      </ul>
 
-    <h4 class="mt-4">Cambia password</h4>
-    <form @submit.prevent="changePassword" class="mb-3">
-      <label for="currentPassword" class="form-label">Password attuale</label>
-      <input
-        id="currentPassword"
-        v-model="currentPassword"
-        type="password"
-        placeholder="Password attuale"
-        class="form-control mb-2"
-        required
-        autocomplete="current-password"
-        aria-label="Password attuale"
+      <h4 class="mt-4 text-center">Cambia password</h4>
+      <form @submit.prevent="changePassword" class="mb-3 d-flex flex-column align-items-center">
+        <label for="currentPassword" class="form-label w-100 text-center">Password attuale</label>
+        <input
+          id="currentPassword"
+          v-model="currentPassword"
+          type="password"
+          placeholder="Password attuale"
+          class="form-control mb-2 text-center"
+          required
+          autocomplete="current-password"
+          aria-label="Password attuale"
+        />
+        <label for="newPassword" class="form-label w-100 text-center">Nuova password</label>
+        <input
+          id="newPassword"
+          v-model="newPassword"
+          type="password"
+          placeholder="Nuova password"
+          class="form-control mb-2 text-center"
+          required
+          autocomplete="new-password"
+          aria-label="Nuova password"
+        />
+        <button class="btn btn-primary w-100" :disabled="loading" aria-label="Aggiorna password">
+          <span v-if="loading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+          Aggiorna password
+        </button>
+      </form>
+
+      <button class="btn btn-danger w-100 mb-2" @click="logout" aria-label="Logout">Logout</button>
+
+      <Toast
+        :show="toast.show"
+        :message="toast.message"
+        :type="toast.type"
+        @close="toast.show = false"
       />
-      <label for="newPassword" class="form-label">Nuova password</label>
-      <input
-        id="newPassword"
-        v-model="newPassword"
-        type="password"
-        placeholder="Nuova password"
-        class="form-control mb-2"
-        required
-        autocomplete="new-password"
-        aria-label="Nuova password"
-      />
-      <button class="btn btn-primary w-100" :disabled="loading" aria-label="Aggiorna password">
-        <span v-if="loading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
-        Aggiorna password
-      </button>
-    </form>
-
-    <button class="btn btn-danger w-100" @click="logout" aria-label="Logout">Logout</button>
-
-    <Toast
-      :show="toast.show"
-      :message="toast.message"
-      :type="toast.type"
-      @close="toast.show = false"
-    />
+    </div>
   </div>
 </template>
 
@@ -118,4 +120,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container {
+  min-height: 100vh;
+  padding: 1rem;
+}
+</style>
 

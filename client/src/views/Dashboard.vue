@@ -29,6 +29,16 @@
       <option value="author">Autore (A-Z)</option>
     </select>
 
+    <select
+      v-model="statusFilter"
+      class="form-select mb-4"
+      aria-label="Filtra per stato"
+    >
+      <option value="">Tutti gli stati</option>
+      <option value="letto">Solo letti</option>
+      <option value="da leggere">Solo da leggere</option>
+    </select>
+
     <BookForm
       v-if="editingBook"
       ref="bookForm"
@@ -130,6 +140,7 @@ export default {
       },
       currentPage: 1,
       pageSize: 9, // libri per pagina
+      statusFilter: '',
     };
   },
   async mounted() {
@@ -278,7 +289,8 @@ export default {
       let filtered = this.books.filter(b => {
         const matchText = b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q);
         const matchCat = this.selectedCategory ? b.category === this.selectedCategory : true;
-        return matchText && matchCat;
+        const matchStatus = this.statusFilter ? b.status === this.statusFilter : true;
+        return matchText && matchCat && matchStatus;
       });
 
       // Ordinamento

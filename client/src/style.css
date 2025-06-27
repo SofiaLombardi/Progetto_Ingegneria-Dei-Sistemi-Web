@@ -56,6 +56,11 @@ button:focus-visible {
 
 .card {
   padding: 2em;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  background: #fff;
+  color: #213547;
+  margin-bottom: 2rem;
 }
 
 #app {
@@ -102,6 +107,9 @@ button:focus-visible {
   top: 1rem;
   right: 1rem;
   z-index: 1050;
+  border-radius: 8px;
+  font-size: 1.05em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 canvas {
   width: 100% !important;
@@ -121,9 +129,17 @@ canvas {
     padding: 0.75rem 1rem;
   }
 }
-.star {
-  font-size: 1.1em;
+.star,
+.star-input {
+  font-size: 1.5em;
   vertical-align: middle;
+  color: #e4e5e9;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.star.active,
+.star-input.active {
+  color: #ffc107;
 }
 
 .chart-wrapper {
@@ -137,4 +153,10 @@ canvas {
   height: auto !important;
   display: block;
   aspect-ratio: 1/1;
+}
+
+.badge.bg-info {
+  background-color: #b6e0fe !important;
+  color: #213547 !important;
+  font-weight: 500;
 }

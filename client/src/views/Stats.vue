@@ -6,25 +6,28 @@
       <div class="spinner-border" role="status" aria-label="Caricamento..."></div>
     </div>
     <div v-else>
-      <ul class="list-group mb-4">
-        <li class="list-group-item">Totale libri: {{ books.length }}</li>
-        <li class="list-group-item">Libri letti: {{ readCount }}</li>
-        <li class="list-group-item">Da leggere: {{ toReadCount }}</li>
-        <li class="list-group-item">Media voto (letti): {{ avgRating.toFixed(2) }}</li>
-        <li class="list-group-item">Categoria più letta: {{ mostReadCategory || 'Nessuna' }}</li>
+      <ul v-if="books.length" class="list-group mb-4 mx-auto stats-list" style="max-width: 420px;">
+        <li class="list-group-item text-center">Totale libri: {{ books.length }}</li>
+        <li class="list-group-item text-center">Libri letti: {{ readCount }}</li>
+        <li class="list-group-item text-center">Da leggere: {{ toReadCount }}</li>
+        <li class="list-group-item text-center">Media voto (letti): {{ avgRating.toFixed(2) }}</li>
+        <li class="list-group-item text-center">Categoria più letta: {{ mostReadCategory || 'Nessuna' }}</li>
       </ul>
+      <div v-else class="alert alert-info text-center">
+        Nessun libro presente. <router-link to="/">Aggiungi il tuo primo libro!</router-link>
+      </div>
 
-      <div class="row">
-        <div class="col-12 col-md-6 mb-4 text-center">
-          <h4 class="mb-3">Libri per categoria</h4>
-          <div class="chart-wrapper">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center">
+          <h4 class="mb-3 text-center">Libri per categoria</h4>
+          <div class="chart-wrapper w-100 d-flex justify-content-center">
             <StatsChart :type="'pie'" :data="categoryChartData" />
           </div>
         </div>
 
-        <div class="col-12 col-md-6 mb-4 text-center">
-          <h4 class="mb-3">Libri da leggere per categoria</h4>
-          <div class="chart-wrapper">
+        <div class="col-12 col-md-6 mb-4 d-flex flex-column align-items-center">
+          <h4 class="mb-3 text-center">Libri da leggere per categoria</h4>
+          <div class="chart-wrapper w-100 d-flex justify-content-center">
             <StatsChart :type="'bar'" :data="toReadCategoryChartData" />
           </div>
         </div>
@@ -67,7 +70,12 @@ export default {
       });
       this.books = res.data;
     } catch (err) {
-      this.showToast('Errore nel recupero delle statistiche', 'danger');
+      if (err.response && err.response.status === 401) {
+        this.showToast('Sessione scaduta, effettua di nuovo il login.', 'danger');
+        this.$router.push('/login');
+      } else {
+        this.showToast('Errore nel recupero delle statistiche', 'danger');
+      }
     } finally {
       this.loading = false;
     }
@@ -109,7 +117,7 @@ export default {
           topCat = cat;
         }
       }
-      return topCat;
+      return topCat || 'Nessuna';
     },
     categoryChartData() {
       const labels = Object.keys(this.categoryCount);
@@ -158,3 +166,59 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.stats-list {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  background: #fff;
+}
+.stats-list .list-group-item {
+  font-size: 1.1em;
+  padding: 1rem 0.5rem;
+  border: none;
+}
+.stats-list .list-group-item:hover {
+  background: #f3f6fa;
+  transition: background 0.2s;
+}
+.chart-wrapper {
+  width: 100%;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem 0.5rem;
+}
+@media (max-width: 576px) {
+  .chart-wrapper {
+    max-width: 100%;
+    padding: 1rem 0.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .col-12.col-md-6.mb-4 {
+    margin-bottom: 2rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .row.justify-content-center > .col-md-6:not(:last-child) {
+    border-right: 1px solid #e9ecef;
+  }
+}
+h2, h4 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #4e79a7;
+}
+</style>

@@ -1,6 +1,8 @@
 <template>
-  <div class="chart-wrapper">
-    <canvas ref="canvas"></canvas>
+  <div class="chart-outer d-flex flex-column align-items-center justify-content-center">
+    <div class="chart-wrapper">
+      <canvas ref="canvas"></canvas>
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,6 @@ export default {
     options: { type: Object, default: () => ({}) }
   },
   mounted() {
-    // Imposta dimensioni fisiche del canvas per retina e proporzioni corrette
     this.$refs.canvas.width = 400;
     this.$refs.canvas.height = 400;
     this.chart = new Chart(this.$refs.canvas, {
@@ -31,7 +32,7 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        aspectRatio: 1, // quadrato
+        aspectRatio: 1,
         ...this.options
       }
     });
@@ -43,17 +44,29 @@ export default {
 </script>
 
 <style scoped>
+.chart-outer {
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .chart-wrapper {
   max-width: 320px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .chart-wrapper canvas {
   width: 100% !important;
   height: auto !important;
   display: block;
   aspect-ratio: 1/1;
+  margin: 0 auto;
 }
 @media (max-width: 992px) {
   .chart-wrapper {
