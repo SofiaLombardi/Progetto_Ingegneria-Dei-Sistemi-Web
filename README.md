@@ -29,7 +29,8 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 
 - Login/Registrazione  
 - Dashboard (libreria personale)  
-- Wishlist  
+- Wishlist
+- Raccolte  
 - Statistiche  
 - Profilo utente  
 
@@ -51,7 +52,7 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 - **Database:** MongoDB (tramite Mongoose ODM)
 - **Autenticazione:** JWT (JSON Web Token)
 - **Sicurezza:** Hashing password con bcrypt, middleware di autenticazione per le route protette
-- **CORS:** Gestito tramite il pacchetto `cors`
+
 
 ### Altre tecnologie
 - **Gestione ambienti:** dotenv
