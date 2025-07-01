@@ -33,7 +33,7 @@ I mock-up delle principali pagine dell’applicazione sono stati realizzati con 
 - Statistiche  
 - Profilo utente  
 
-*📸 Inserire qui le immagini esportate da Figma*
+
 
 ---
 
@@ -130,15 +130,7 @@ npm run dev
 - axios
 - bootstrap
 
-## 7. API principali
-
-
-
-### Libri
-
-
-
-## 8. Statistiche e grafici
+## 7. Statistiche e grafici
 
 **Backend (server/):**
 - express

@@ -82,14 +82,6 @@ export default {
       return this.$route.path === '/register';
     }
   },
-  methods: {
-    logout() {
-      localStorage.removeItem('token');
-      localStorage.removeItem('username');
-      this.$router.push('/login');
-      window.location.reload();
-    }
-  }
 };
 </script>
 
